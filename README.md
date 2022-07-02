@@ -14,7 +14,7 @@ Ketika anda sudah memasang userbot ini, berarti anda sudah siap dengan resikonya
 ```
 
 <h3 align="center">Klik Tombol di Bawah ini untuk Deploy di Heroku</h3>
-<p href="https://heroku.com/deploy?template=https://github.com/ArmanGG01/PyroKar-Userbot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
+<a href="https://heroku.com/deploy?template=https://github.com/ArmanGG01/PyroKar-Userbot"><img src="https://www.herokucdn.com/deploy/button.svg"></a>
 </div>
 
 ## 🖇 Generating Pyrogram String Session
