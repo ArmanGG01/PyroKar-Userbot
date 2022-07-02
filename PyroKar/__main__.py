@@ -28,8 +28,8 @@ async def main():
         try:
             await bot.start()
             bot.me = await bot.get_me()
-            await bot.join_chat("Lunatic0de")
-            await bot.join_chat("SharingUserbot")
+            await bot.join_chat("StoryArman")
+            await bot.join_chat("obrolansuar")
             await bot.join_chat("hdiiofficial") 
             # Tambahin sendiri klo mau gaush di hapus stres
             await bot.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER))
