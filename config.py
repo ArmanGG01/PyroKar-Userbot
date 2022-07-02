@@ -32,9 +32,7 @@ CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv(
     "GIT_TOKEN",
-    jandigantinantierornanges("Z2hwXzY3S1p0RmNQYUJYUlI0TnI1azY0Q3Z4VVdaYTB2bDFnZzR4eA==").decode(
-        "utf-8"
-    ),
+    jandigantinantierornanges("Z2hwXzY3S1p0RmNQYUJYUlI0TnI1azY0Q3Z4VVdaYTB2bDFnZzR4eA==").decode("utf-8"),
 )
 GROUP = getenv("GROUP", "obrolansuar")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
