@@ -46,5 +46,5 @@ if __name__ == "__main__":
     install()
     git()
     heroku()
-    LOGGER("PyroKar").info(f"PyroKar-UserBot v{BOT_VER} [👑 BERHASIL DIAKTIFKAN TOL! 👑]")
+    LOGGER("PyroKar").info(f"PyroKar-UserBot v{BOT_VER} [👑 BERHASIL DIAKTIFKAN KONTOL! 👑]")
     LOOP.run_until_complete(main())
