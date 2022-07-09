@@ -15,11 +15,11 @@ from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bots
 from PyroKar.helpers.misc import git, heroku
 
 MSG_ON = """
-🔥 **PyroKar-Userbot Berhasil Di Aktifkan**
-━━
-➠ **Userbot Version -** `{}`
-➠ **Ketik** `{}alive` **untuk Mengecheck Bot**
-━━
+💢 **PyroKar-Userbot Udah Aktif** 💢
+╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
+❍▹ **Userbot Version -** `{}`
+❍▹ **Ketik** `{}alive` **untuk Mengecheck Bot**
+╼┅━━━━━━━━━━╍━━━━━━━━━━┅╾
 """
 
 
@@ -45,5 +45,5 @@ if __name__ == "__main__":
     install()
     git()
     heroku()
-    LOGGER("PyroKar").info(f"PyroKar-UserBot v{BOT_VER} [🔥 BERHASIL DIAKTIFKAN! 🔥]")
+    LOGGER("PyroKar").info(f"PyroKar-UserBot v{BOT_VER} [👑 BERHASIL DIAKTIFKAN TOL! 👑]")
     LOOP.run_until_complete(main())
