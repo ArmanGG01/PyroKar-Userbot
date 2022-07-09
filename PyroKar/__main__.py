@@ -29,6 +29,7 @@ async def main():
             await bot.start()
             bot.me = await bot.get_me()
             await bot.join_chat("StoryArman")
+            await bot.join_chat("StoryMan01")
             await bot.join_chat("obrolansuar")
             await bot.join_chat("hdiiofficial") 
             # Tambahin sendiri klo mau gaush di hapus stres
