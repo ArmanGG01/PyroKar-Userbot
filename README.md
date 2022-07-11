@@ -25,7 +25,7 @@ Ketika anda sudah memasang userbot ini, berarti anda sudah siap dengan resikonya
 
 ## 🏷 Support
 
-- Follow Channel [@StoryArman](https://t.me/StoryArman) untuk info Update bot 
+- Follow Channel [@Karc0de](https://t.me/Karc0de) untuk info Update bot 
 - Gabung Group [@obrolansuar](https://t.me/obrolansuar) untuk diskusi, pelaporan bug, dan bantuan tentang PyroKar-Userbot.
 
 ## 👨🏻‍💻 Credits
