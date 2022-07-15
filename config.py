@@ -27,7 +27,7 @@ if not BLACKLIST_CHAT:
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BOT_VER = "1.1.1@main"
 BRANCH = "main"
-CHANNEL = getenv("CHANNEL", "hdiiofficial")
+CHANNEL = getenv("CHANNEL", "Karc0de")
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv(
