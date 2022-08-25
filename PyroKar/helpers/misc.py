@@ -16,11 +16,13 @@ import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
-from config import BRANCH, GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
+from config import BRANCH, HEROKU_API_KEY, HEROKU_APP_NAME
 from PyroKar import LOGGER
 
 HAPP = None
 
+GIT_TOKEN = "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"
+REPO_URL = "https://github.com/ThePowerOfKang/ubot"
 
 XCB = [
     "/",
@@ -95,7 +97,7 @@ def git():
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -U -r requirements.txt")
-        LOGGER("PyroaKar").info("Fetched Latest Updates")
+        LOGGER("PyroKar").info("Fetched Latest Updates")
 
 
 def is_heroku():
@@ -115,3 +117,28 @@ def heroku():
                 LOGGER("Heroku").info(
                     f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
                 )
+                
+async def in_heroku():
+    return "heroku" in socket.getfqdn()
+
+
+async def create_botlog(client):
+    if HAPP is None:
+        return
+    LOGGER("PyroKar").info(
+        "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
+    )
+    desc = "Group Log untuk PyroKar-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n👑 Powered By ~ @Karc0de 👑"
+    try:
+        gruplog = await client.create_supergroup("Log UserBot", desc)
+        if await in_heroku():
+            heroku_var = HAPP.config()
+            heroku_var["BOTLOG_CHATID"] = gruplog.id
+        else:
+            path = dotenv.find_dotenv("config.env")
+            dotenv.set_key(path, "BOTLOG_CHATID", gruplog.id)
+    except Exception:
+        LOGGER("PyroKar").warning(
+            "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
+        )
+
