@@ -12,8 +12,7 @@ from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
 from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
-from PyroKar.helpers.misc import create_botlog
-from PyroKar.helpers.misc import git, heroku
+from PyroKar.helpers.misc import create_botlog, git, heroku
 
 MSG_ON = """
 💢 **PyroKar-Userbot Udah Aktif** 💢
