@@ -7,15 +7,12 @@
 #
 # t.me/SharingUserbot & t.me/Lunatic0de
 
-import importlib
-
 from pyrogram import idle
 from uvloop import install
 
 from config import BOT_VER, CMD_HANDLER
 from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots
-from PyroKar.helpers.misc import create_botlog, heroku
-from PyroKar.modules import ALL_MODULES
+from PyroKar.helpers.misc import create_botlog, git, heroku
 
 MSG_ON = """
 💢 **PyroKar-Userbot Udah Aktif** 💢
@@ -27,8 +24,6 @@ MSG_ON = """
 
 
 async def main():
-    for all_module in ALL_MODULES:
-        importlib.import_module(f"PyroKar.modules.{all_module}")
     for bot in bots:
         try:
             await bot.start()
@@ -44,7 +39,7 @@ async def main():
                 )
             except BaseException:
                 pass
-            LOGGER("ProjectKar").info(
+            LOGGER("PyroKar").info(
                 f"Logged in as {bot.me.first_name} | [ {bot.me.id} ]"
             )
         except Exception as a:
@@ -59,5 +54,6 @@ async def main():
 if __name__ == "__main__":
     LOGGER("PyroKar").info("Starting PyroKar-UserBot")
     install()
+    git()
     heroku()
     LOOP.run_until_complete(main())
