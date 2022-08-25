@@ -10,10 +10,10 @@
 
 _starter () {
     echo "Downloading source code"
-    git clone https://github.com/mrismanaziz/PyroMan-Userbot
+    git clone https://github.com/ArmanGG01/PyroKar-Userbot
     cd PyroKar-Userbot/ && rm -rf .git
     python3 ../updater.py ../requirements.txt requirements.txt
-    echo "PyoMan-Userbot v0.2.0, Copyright © 2022 (Risman) <https://github.com/mrismanaziz>"
+    echo "PyoKar-Userbot v0.2.0, Copyright © 2022 (Arman) <https://github.com/ArmanGG01>"
     python3 -m PyroKar
 }
 
