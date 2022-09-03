@@ -23,6 +23,9 @@ Ketika anda sudah memasang userbot ini, berarti anda sudah siap dengan resikonya
 - Generate Session via <a href="https://repl.it/@mrismanaziz/stringen?lite=1&outputonly=1">Repl</a>
 - Generate Session via <a href="https://t.me/KarString_bot">Telegram String Generation Bot</a>
 
+## Okteto Deploy [Recomended if heroku not free]
+  <a href="https://okteto.com">Click Here</a>
+
 ## 🏷 Support
 
 - Follow Channel [@Karc0de](https://t.me/Karc0de) untuk info Update bot 
@@ -30,6 +33,7 @@ Ketika anda sudah memasang userbot ini, berarti anda sudah siap dengan resikonya
 
 ## 👨🏻‍💻 Credits
 -  [Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram)
+-  [Risman](https://github.com/mrismanaziz) for [PyroMan-Userbot](https://github.com/mrismanaziz/PyroMan-Userbot)
 -  [Arman](https://github.com/ArmanGG01) for [PyroKar-Userbot](https://github.com/ArmanGG01/PyroKar-Userbot)
 
 #### Special Thanks To [Everyone](https://github.com/mrismanaziz/PyroMan-Userbot/graphs/contributors) Who Has Helped Make This Userbot Awesome!
@@ -39,6 +43,7 @@ Ketika anda sudah memasang userbot ini, berarti anda sudah siap dengan resikonya
 -  [ITZ-ZAID](https://github.com/ITZ-ZAID) : Zaid-UserBot
 -  [Tofikdn](https://github.com/tofikdn) : Tede
 -  [Toni](https://github.com/Toni880) : Prime-UserBot
+-  [Hadi](https://github.com/hdiiofficial) : hdiiofficial
 
 ## 📑 License
 Licensed under [GNU General Public License v3.0](https://github.com/mrismanaziz/PyroMan-Userbot/blob/Man-Userbot/LICENSE) All designs were created by [@mrismanaziz](https://github.com/mrismanaziz)
