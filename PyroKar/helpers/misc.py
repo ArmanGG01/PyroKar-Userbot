@@ -96,7 +96,7 @@ def git():
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
         install_req("pip3 install --no-cache-dir -U -r requirements.txt")
-        LOGGER("rams").info("Fetched Latest Updates")
+        LOGGER("PyroKar").info("Fetched Latest Updates")
 
 
 def is_heroku():
@@ -126,11 +126,11 @@ async def create_botlog(client):
     if HAPP is None:
         return
     LOGGER("PyroKar").info(
-        "SEBENTAR YA KENTOD, GUA LAGI BIKIN GRUP BUAT LU TOD."
+        "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
     )
-    desc = "Group Log untuk PyroKar-Userbot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n👑 Powered By ~ @Karc0de 👑"
+    desc = "Group Log untuk PyroKar-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n👑 Powered By ~ @Karc0de 👑"
     try:
-        gruplog = await client.create_supergroup("Logs PyroKar-Userbot", desc)
+        gruplog = await client.create_supergroup("PyroKar UserBot", desc)
         if await in_heroku():
             heroku_var = HAPP.config()
             heroku_var["BOTLOG_CHATID"] = gruplog.id
