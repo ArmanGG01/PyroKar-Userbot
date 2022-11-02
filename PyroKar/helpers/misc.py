@@ -69,7 +69,7 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("rams").info(f"Git Client Found")
+        LOGGER("PyroKar").info(f"Git Client Found")
     except GitCommandError:
         LOGGER("PyroKar").info(f"Invalid Git Command")
     except InvalidGitRepositoryError:
