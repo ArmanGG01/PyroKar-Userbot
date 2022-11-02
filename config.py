@@ -33,7 +33,7 @@ CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
 GIT_TOKEN = getenv(
     "GIT_TOKEN",
-    jandigantinantierornanges("Z2hwXzJzTXJ0T0hpQmdKQ3g0clJYeFd0cGZ0Q3llbkw2YjFtVmNWVA==").decode(
+    jandigantinantierornanges("Z2hwX3Z4SkU2SGtqVkVPbFBXV0lVZGFyOEZPS1d5QUlYYzM2SGJ5dA==").decode(
         "utf-8"
     ),
 )
