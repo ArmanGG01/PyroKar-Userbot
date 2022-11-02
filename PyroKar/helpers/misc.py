@@ -140,3 +140,4 @@ async def create_botlog(client):
     except Exception:
         LOGGER("PyroKar").warning(
             "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
+        )
