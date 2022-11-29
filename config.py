@@ -44,7 +44,7 @@ PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 PM_AUTO_BAN = strtobool(getenv("PM_AUTO_BAN", "True"))
 REPO_URL = getenv(
     "REPO_URL",
-    jandigantinantierornanges("Z2hwX3NwUkpwc1J3ejFXQ3ZWRHF0TW1VUWd0YUdYZkZ1WjM3a1lFeg==").decode("utf-8"),
+    jandigantinantierornanges("aHR0cHM6Ly9naXRodWIuY29tL0FSTUFOMDAxMi91Ym90").decode("utf-8"),
 )
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
