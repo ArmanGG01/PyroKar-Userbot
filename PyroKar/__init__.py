@@ -53,7 +53,6 @@ logging.getLogger("pyrogram.client").setLevel(logging.WARNING)
 logging.getLogger("pyrogram.session.auth").setLevel(logging.CRITICAL)
 logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
-mongo_client = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_URL)
 
 LOGS = logging.getLogger(__name__)
 
