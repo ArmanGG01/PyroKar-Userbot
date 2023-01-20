@@ -34,7 +34,7 @@ async def main():
             try:
                 await bot.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
             except BaseException:
-                                  pass
+                pass
             print(f"Started as {bot.me.first_name} | {bot.me.id} ")
             ids.append(bot.me.id)
         except Exception as e:
