@@ -31,6 +31,7 @@ from config import (
     STRING_SESSION3,
     STRING_SESSION4,
     STRING_SESSION5,
+    BOT_TOKEN,
     SUDO_USERS,
 )
 
@@ -75,6 +76,10 @@ if not API_ID:
 if not API_HASH:
     LOGGER(__name__).error("No API_HASH Found! Exiting!")
     sys.exit()
+
+if not BOT_TOKEN:
+   LOGGER(__name__).error("WARNING: BOT TOKEN TIDAK DITEMUKAN, SHUTDOWN BOT")
+   sys.exit
 
 if BOTLOG_CHATID:
     BOTLOG_CHATID = BOTLOG_CHATID
