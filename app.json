@@ -12,7 +12,7 @@
       "required": true
     },
     "BOT_TOKEN": {
-      "description": "Buatlah Sebuah Bot Di BotFather Lalu Salin Token Bot Nya“,
+      "description": "Buatlah Sebuah Bot Di BotFather Lalu Salin Token Bot Nya",
       "required": true
     },
     "STRING_SESSION1": {
