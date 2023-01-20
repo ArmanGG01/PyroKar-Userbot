@@ -110,7 +110,7 @@ app = Client(
     bot_token=BOT_TOKEN,
     plugins=dict(root="PyroKar/modules/bot"),
     in_memory=True,
-
+)
 
 bot1 = (
     Client(
