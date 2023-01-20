@@ -1,12 +1,3 @@
-# Credits: @mrismanaziz
-# Copyright (C) 2022 Pyro-ManUserbot
-#
-# This file is a part of < https://github.com/mrismanaziz/PyroMan-Userbot/ >
-# PLease read the GNU Affero General Public License in
-# <https://www.github.com/mrismanaziz/PyroMan-Userbot/blob/main/LICENSE/>.
-#
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import asyncio
 import logging
 import sys
@@ -14,6 +5,8 @@ import time
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from typing import Any, Dict
+import motor.motor_asyncio
+from .config_var import Config
 
 from aiohttp import ClientSession
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -21,21 +14,32 @@ from gpytranslate import Translator
 from pyrogram import Client
 from pytgcalls import GroupCallFactory
 
+
 from config import (
     API_HASH,
     API_ID,
     BOTLOG_CHATID,
-    DB_URL,
+    MONGO_URL,
     STRING_SESSION1,
     STRING_SESSION2,
     STRING_SESSION3,
     STRING_SESSION4,
     STRING_SESSION5,
-    BOT_TOKEN,
+    STRING_SESSION6,
+    STRING_SESSION7,
+    STRING_SESSION8,
+    STRING_SESSION9,
+    STRING_SESSION10,
     SUDO_USERS,
+    BOT_TOKEN
 )
-
+DB_URL = MONGO_URL
+CMD_HELP = {}
+SUDO_USER = SUDO_USERS
+clients = []
+ids = []
 LOG_FILE_NAME = "logs.txt"
+
 logging.basicConfig(
     level=logging.INFO,
     format="[%(levelname)s] - %(name)s - %(message)s",
@@ -52,6 +56,8 @@ logging.getLogger("pyrogram.client").setLevel(logging.WARNING)
 logging.getLogger("pyrogram.session.auth").setLevel(logging.CRITICAL)
 logging.getLogger("pyrogram.session.session").setLevel(logging.CRITICAL)
 
+mongo_client = motor.motor_asyncio.AsyncIOMotorClient(Config.MONGO_URL)
+
 LOGS = logging.getLogger(__name__)
 
 
@@ -66,25 +72,29 @@ if (
     and not STRING_SESSION4
     and not STRING_SESSION5
 ):
-    LOGGER(__name__).error("No String Session Found! Exiting!")
+    LOGGER(__name__).warning("STRING SESSION TIDAK DITEMUKAN, SHUTDOWN BOT!")
     sys.exit()
 
-if not API_ID:
-    LOGGER(__name__).error("No API_ID Found! Exiting!")
-    sys.exit()
+if API_ID:
+   API_ID = API_ID
+else:
+   LOGGER(__name__).warning("WARNING: MEMULAI BOT TANPA API ID")
+   API_ID = "6435225"
 
-if not API_HASH:
-    LOGGER(__name__).error("No API_HASH Found! Exiting!")
-    sys.exit()
+if API_HASH:
+   API_HASH = API_HASH
+else:
+   LOGGER(__name__).warning("WARNING: MEMULAI BOT TANPA API HASH")   
+   API_HASH = "4e984ea35f854762dcde906dce426c2d"
 
 if not BOT_TOKEN:
    LOGGER(__name__).error("WARNING: BOT TOKEN TIDAK DITEMUKAN, SHUTDOWN BOT")
    sys.exit
 
 if BOTLOG_CHATID:
-    BOTLOG_CHATID = BOTLOG_CHATID
+   BOTLOG_CHATID = BOTLOG_CHATID
 else:
-    BOTLOG_CHATID = "me"
+   BOTLOG_CHATID = "me"
 
 LOOP = asyncio.get_event_loop()
 
@@ -93,9 +103,6 @@ trl = Translator()
 aiosession = ClientSession()
 
 CMD_HELP = {}
-SUDO_USER = SUDO_USERS
-clients = []
-ids = []
 
 scheduler = AsyncIOScheduler()
 
@@ -107,13 +114,12 @@ TEMP_SETTINGS: Dict[Any, Any] = {}
 TEMP_SETTINGS["PM_COUNT"] = {}
 TEMP_SETTINGS["PM_LAST_MSG"] = {}
 
-
 app = Client(
     name="app",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN,
-    plugins=dict(root="PyroKar/modules/bot"),
+    plugins=dict(root="Geez/modules/bot"),
     in_memory=True,
 )
 
@@ -123,7 +129,7 @@ bot1 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION1,
-        plugins=dict(root="PyroKar/modules"),
+        plugins=dict(root="Geez/modules"),
     )
     if STRING_SESSION1
     else None
@@ -135,7 +141,7 @@ bot2 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION2,
-        plugins=dict(root="PyroKar/modules"),
+        plugins=dict(root="Geez/modules"),
     )
     if STRING_SESSION2
     else None
@@ -147,7 +153,7 @@ bot3 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION3,
-        plugins=dict(root="PyroKar/modules"),
+        plugins=dict(root="Geez/modules"),
     )
     if STRING_SESSION3
     else None
@@ -159,7 +165,7 @@ bot4 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION4,
-        plugins=dict(root="PyroKar/modules"),
+        plugins=dict(root="Geez/modules"),
     )
     if STRING_SESSION4
     else None
@@ -171,14 +177,74 @@ bot5 = (
         api_id=API_ID,
         api_hash=API_HASH,
         session_string=STRING_SESSION5,
-        plugins=dict(root="PyroKar/modules"),
+        plugins=dict(root="Geez/modules"),
     )
     if STRING_SESSION5
     else None
 )
 
+bot6 = (
+    Client(
+        name="bot6",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION6,
+        plugins=dict(root="Geez/modules"),
+    )
+    if STRING_SESSION6
+    else None
+)
 
-bots = [bot for bot in [bot1, bot2, bot3, bot4, bot5] if bot]
+bot7 = (
+    Client(
+        name="bot7",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION7,
+        plugins=dict(root="Geez/modules"),
+    )
+    if STRING_SESSION7
+    else None
+)
+
+bot8 = (
+    Client(
+        name="bot8",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION8,
+        plugins=dict(root="Geez/modules"),
+    )
+    if STRING_SESSION8
+    else None
+)
+
+bot9 = (
+    Client(
+        name="bot9",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION9,
+        plugins=dict(root="Geez/modules"),
+    )
+    if STRING_SESSION9
+    else None
+)
+
+bot10 = (
+    Client(
+        name="bot10",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=STRING_SESSION10,
+        plugins=dict(root="Geez/modules"),
+    )
+    if STRING_SESSION10
+    else None
+)
+
+
+bots = [bot for bot in [bot1, bot2, bot3, bot4, bot5, bot6, bot7, bot8, bot9, bot10] if bot]
 
 for bot in bots:
     if not hasattr(bot, "group_call"):
