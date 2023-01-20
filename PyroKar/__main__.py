@@ -25,7 +25,7 @@ async def main():
     for bot in bots:
         try:
             await bot.start()
-            ex = await bot.get_me()
+            bot.me = await bot.get_me()
             await bot.join_chat("hdiiofficial")
             await bot.join_chat("StoryMan01")
             await bot.join_chat("Pyr0kar")
@@ -35,8 +35,8 @@ async def main():
                 await bot.send_message(BOTLOG_CHATID, MSG_ON.format(BOT_VER, CMD_HANDLER)
             except BaseException:
                 pass
-            print(f"Started as {ex.first_name} | {ex.id} ")
-            ids.append(ex.id)
+            print(f"Started as {bot.me.first_name} | {bot.me.id} ")
+            ids.append(bot.me.id)
         except Exception as e:
             print(f"{e}")
     await idle()
@@ -46,4 +46,5 @@ async def main():
 if __name__ == "__main__":
     LOGGER("PyroKar").info("Starting PyroKar Userbot")
     install()
+    heroku()
     LOOP.run_until_complete(main())
