@@ -11,6 +11,10 @@
       "description": "Dapatkan API Hash di web my.telegram.org",
       "required": true
     },
+    "BOT_TOKEN": {
+      "description": "Buatlah Sebuah Bot Di BotFather Lalu Salin Token Bot Nya“,
+      "required": true
+    },
     "STRING_SESSION1": {
       "description": "Dapatkan String Session Pyrogram di Grup » https://t.me/obrolansuar » Lalu ketik #string",
       "required": true
