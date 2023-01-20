@@ -17,7 +17,7 @@ from config import (
     API_HASH,
     API_ID,
     BOTLOG_CHATID,
-    MONGO_URL,
+    DB_URL,
     STRING_SESSION1,
     STRING_SESSION2,
     STRING_SESSION3,
@@ -31,7 +31,6 @@ from config import (
     SUDO_USERS,
     BOT_TOKEN
 )
-DB_URL = MONGO_URL
 CMD_HELP = {}
 SUDO_USER = SUDO_USERS
 clients = []
