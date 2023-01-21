@@ -5,6 +5,7 @@ from pyrogram import Client, enums, filters
 from pyrogram.types import Message
 
 from PyroKar import app, CMD_HELP
+from PyroKar.helpers.cmd import *
 from PyroKar.helpers.PyroHelpers import ReplyCheck
 from PyroKar.helpers.utility import split_list
 
@@ -17,7 +18,7 @@ async def edit_or_reply(message: Message, *args, **kwargs) -> Message:
     )
     return await xyz(*args, **kwargs)
 
-@Client.on_message(filters.command(["help", "helpme"], ".") & filters.me)
+@Client.on_message(filters.command(["help", "helpme"], cmd) & filters.me)
 async def module_help(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
@@ -68,7 +69,7 @@ async def module_help(client: Client, message: Message):
             )
 
 
-@Client.on_message(filters.command(["plugins", "modules"], ".") & filters.me)
+@Client.on_message(filters.command(["plugins", "modules"], cmd) & filters.me)
 async def module_helper(client: Client, message: Message):
     cmd = message.command
     help_arg = ""
