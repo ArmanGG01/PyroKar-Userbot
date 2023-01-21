@@ -77,7 +77,7 @@ async def pingme(client: Client, message: Message):
     start = datetime.now()
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await message.edit(
+    await message.reply_text(
         f"❏ **PONG!!🏓**\n"
         f"├• **Pinger** - `%sms`\n"
         f"├• **Uptime -** `{uptime}` \n"
@@ -100,7 +100,7 @@ async def kping(client: Client, message: Message):
     await xx.edit("Ahhhhhhhh Akhirnya Keluar Jugak 💦💦")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await xx.edit(
+    await xx.reply(
         f"❏ **PONG!!🏓**\n"
         f"├• **Pinger** - `%sms`\n"
         f"├• **Uptime -** `{uptime}` \n"
