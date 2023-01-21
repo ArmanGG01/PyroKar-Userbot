@@ -1,16 +1,10 @@
 
 import asyncio
 import math
-import os
-import random
-import shutil
-import sys
 import dotenv
 import heroku3
 import requests
 import urllib3
-from datetime import datetime
-from time import strftime, time
 from PyroKar.utils.misc import *
 from pyrogram import Client, filters
 
