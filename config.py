@@ -42,8 +42,8 @@ GIT_TOKEN = getenv(
     ),
 )
 GROUP = getenv("GROUP", "obrolansuar")
-HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
-HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
+HEROKU_API_KEY = getenv("HEROKU_API_KEY")
+HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 PM_AUTO_BAN = strtobool(getenv("PM_AUTO_BAN", "True"))
 REPO_URL = getenv(
