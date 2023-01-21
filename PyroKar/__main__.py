@@ -4,7 +4,7 @@ from uvloop import install
 
 
 from PyroKar.modules import ALL_MODULES
-from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, bot1, bots, app, ids
+from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
 from PyroKar.modules.basic import join
 
 BOT_VER = "0.1.0"
