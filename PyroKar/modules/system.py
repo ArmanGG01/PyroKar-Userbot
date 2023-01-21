@@ -16,9 +16,10 @@ from pyrogram.types import Message
 from config import CMD_HANDLER as cmd
 from PyroKar import BOTLOG_CHATID, LOGGER
 from PyroKar.helpers.basic import edit_or_reply
-from PyroKar.helpers.misc import HAPP
 
 from .help import add_command_help
+
+HAPP = none
 
 
 @Client.on_message(filters.command("restart", cmd) & filters.me)
