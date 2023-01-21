@@ -28,6 +28,7 @@ BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BOT_VER = "1.1.5@main"
 BRANCH = "main"
+CMD_HNDLR = getenv("CMD_HNDLR", ".") 
 OWNER_ID = getenv("OWNER_ID", "")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 CHANNEL = getenv("CHANNEL", "Karc0de")
