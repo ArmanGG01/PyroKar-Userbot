@@ -1,5 +1,4 @@
-from pyrogram.types import InlineKeyboardButton, WebAppInfo
-from Geez.helper.cmd import PREFIX
+from pyrogram.types import InlineKeyboardButton
 
 class Data:
 

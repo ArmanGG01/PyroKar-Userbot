@@ -1,6 +1,5 @@
 # Create Modules By @xtsea
 from pyrogram import *
-from pyrogram import Client as Kar
 
 PREFIX = ["^", "?", "-", "+"]
 
