@@ -21,8 +21,8 @@ from PyroKar import LOGGER
 
 HAPP = None
 
-GIT_TOKEN = "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"
-REPO_URL = "https://github.com/arman404/ubot"
+GIT_TOKEN = ""
+REPO_URL = "https://github.com/ArmanGG01/PyroKar-Userbot/edit/main/PyroKar"
 
 XCB = [
     "/",
@@ -100,7 +100,7 @@ def git():
         LOGGER("PyroKar").info("Fetched Latest Updates")
 
 
-def is_heroku():
+async def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
