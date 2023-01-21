@@ -17,7 +17,7 @@ from pytgcalls import GroupCallFactory
 from config import (
     API_HASH,
     API_ID,
-    DATABASE_URL,
+    DB_URL,
     BOTLOG_CHATID,
     STRING_SESSION1,
     STRING_SESSION2,
@@ -32,7 +32,7 @@ from config import (
     SUDO_USERS,
     BOT_TOKEN
 )
-DB_URL = DATABASE_URL
+DATABASE_URL = DB_URL
 CMD_HELP = {}
 SUDO_USER = SUDO_USERS
 clients = []
