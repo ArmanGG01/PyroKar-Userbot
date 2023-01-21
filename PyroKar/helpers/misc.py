@@ -22,7 +22,7 @@ from PyroKar import LOGGER
 HAPP = None
 
 GIT_TOKEN = ""
-REPO_URL = "https://github.com/ArmanGG01/PyroKar-Userbot/edit/main/PyroKar"
+REPO_URL = "https://github.com/ArmanGG01/PyroKar-Userbot"
 
 XCB = [
     "/",
