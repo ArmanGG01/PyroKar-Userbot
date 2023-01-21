@@ -8,7 +8,7 @@ from pyrogram.types import (
     InputTextMessageContent,
 )
 
-from Geez import ids as list_users
+from PyroKar import ids as list_users
 
 looters = None
 
@@ -38,10 +38,10 @@ def paginate_help(page_number, loaded_modules, prefix):
         ] + [
             (
                 InlineKeyboardButton(
-                    text="≼", callback_data=f"{prefix}_prev({modulo_page})"
+                    text="⋖", callback_data=f"{prefix}_prev({modulo_page})"
                 ),
                 InlineKeyboardButton(
-                    text="≽", callback_data=f"{prefix}_next({modulo_page})"
+                    text="⋗", callback_data=f"{prefix}_next({modulo_page})"
                 ),
             )
         ]
@@ -53,7 +53,7 @@ def cb_wrapper(func):
         users = list_users
         if cb.from_user.id not in users:
             await cb.answer(
-                "Lah? au yaaa!",
+                "Heh Kamu? Apa Yang Kamu Perbuat!",
                 cache_time=0,
                 show_alert=True,
             )
@@ -65,7 +65,7 @@ def cb_wrapper(func):
             except Exception:
                 print(format_exc())
                 await cb.answer(
-                    f"Oh No, SomeThing Isn't Right. Please Check Logs!",
+                    f"Oh Tidak, Sepertinya Ada Masalah Yang Terjadi Sekarang. Tolong Cek Di Logs!",
                     cache_time=0,
                     show_alert=True,
                 )
@@ -83,9 +83,9 @@ def inline_wrapper(func):
                 results=[
                     (
                         InlineQueryResultArticle(
-                            title="Sorry, Friend You Can't Use Me!",
+                            title="Maaf, Kamu Harus Menjadi Pengguna Sudo Untuk Memakai Saya!",
                             input_message_content=InputTextMessageContent(
-                                "You cannot access this Bot"
+                                "Atau Kamu Bisa Membuatnya Sendiri Di @obrolansuar"
                             ),
                         )
                     )
