@@ -10,6 +10,7 @@
 from base64 import b64decode as jandigantinantierornanges
 from distutils.util import strtobool
 from os import getenv
+from PyroKar.helpers.cmd import cmd
 
 from dotenv import load_dotenv
 
@@ -28,7 +29,7 @@ BLACKLIST_GCAST = {int(x) for x in getenv("BLACKLIST_GCAST", "").split()}
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BOT_VER = "1.1.5@main"
 BRANCH = "main"
-CMD_HNDLR = getenv("CMD_HNDLR", ".") 
+CMD_HNDLR = cmd
 OWNER_ID = getenv("OWNER_ID", "")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 CHANNEL = getenv("CHANNEL", "Karc0de")
