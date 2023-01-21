@@ -26,8 +26,6 @@ SUDO_USER = SUDO_USERS
 clients = []
 ids = []
 
-SUDO_USERS.append(OWNER_ID)
-
 if BOTLOG_CHATID:
     BOTLOG_CHATID = BOTLOG_CHATID
 else:
