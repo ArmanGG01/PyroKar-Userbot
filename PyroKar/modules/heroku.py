@@ -1,23 +1,14 @@
 
 import asyncio
 import math
-import os
-import random
-import shutil
-import sys
 import dotenv
 import heroku3
 import requests
 import urllib3
-from datetime import datetime
-from time import strftime, time
 from PyroKar.utils.misc import *
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import Client, filters
-from pyrogram.types import Message
 
-from config import BOTLOG_CHATID, HEROKU_API_KEY, HEROKU_APP_NAME, BRANCH, REPO_URL
+from config import HEROKU_API_KEY, HEROKU_APP_NAME
 from config import CMD_HNDLR as cmds
 from PyroKar import SUDO_USER, Client
 
@@ -195,7 +186,7 @@ async def set_var(client, message):
         path = dotenv.find_dotenv()
         if not path:
             return await message.reply_text(".env not found.")
-        output = dotenv.set_key(path, to_set, value)
+        dotenv.set_key(path, to_set, value)
         if dotenv.get_key(path, to_set):
             return await message.reply_text(
                 f"**.env Var Updation:**\n\n`{to_set}`has been updated successfully. To restart the bot touch /restart command."
@@ -224,7 +215,7 @@ async def usage_dynos(client, message):
         return await message.reply_text("Only for Heroku Apps")
     try:
         Heroku = heroku3.from_key(HEROKU_API_KEY)
-        happ = Heroku.app(HEROKU_APP_NAME)
+        Heroku.app(HEROKU_APP_NAME)
     except BaseException:
         return await message.reply_text(
             " Please make sure your Heroku API Key, Your App name are configured correctly in the heroku"
