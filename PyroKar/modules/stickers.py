@@ -411,6 +411,7 @@ async def memify(client: Client, message: Message):
     os.remove(meme)
 
 
+
 @Client.on_message(filters.command(["get", "getsticker", "mtoi"], cmd) & filters.me)
 async def stick2png(client: Client, message: Message):
     try:
