@@ -5,8 +5,6 @@ from datetime import datetime
 import os
 import shlex
 import textwrap
-from typing import Tuple
-import asyncio
 
 from pyrogram import Client
 from pyrogram import __version__ as pyrover
