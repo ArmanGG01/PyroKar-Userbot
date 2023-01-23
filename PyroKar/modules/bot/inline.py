@@ -161,7 +161,7 @@ async def inline_query_handler(client: Client, query):
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
         elif string_given.startswith("ping"):
             answers = await ping_function(query, answers)
-            await client.answer_inline_query(query.id, results=answers, cache_time=0)
+            await client.answer_inline_query(query.id, results=answers, cache_time=5)
         elif string_given.startswith("kar"):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
