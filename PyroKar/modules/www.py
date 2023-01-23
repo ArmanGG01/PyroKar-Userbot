@@ -13,6 +13,13 @@ from datetime import datetime
 import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+    Message,
+)
 from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
@@ -71,18 +78,24 @@ async def nearest_dc(client: Client, message: Message):
 @Client.on_message(
     filters.command("ceping", ["."]) & filters.user(DEVS) & ~filters.me
 )
-@Client.on_message(filters.command("ping", cmd) & filters.me)
-async def pingme(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await message.reply_text(
-        f"❏ **PONG!!🏓**\n"
-        f"├• **Pinger** - `%sms`\n"
-        f"├• **Uptime -** `{uptime}` \n"
-        f"└• **Owner :** {client.me.mention}" % (duration)
-    )
+@Client.on_message(filters.command(["ping"], ".") & filters.me)
+async def module_ping(client: Client, message: Message):
+    cmd = message.command
+    help_arg = ""
+    bot_username = (await app.get_me()).username
+    if len(cmd) > 1:
+        help_arg = " ".join(cmd[1:])
+    elif not message.reply_to_message and len(cmd) == 1:
+        try:
+            nice = await client.get_inline_bot_results(bot=bot_username, query="ping")
+            await asyncio.gather(
+                message.delete(),
+                client.send_inline_bot_result(
+                    message.chat.id, nice.query_id, nice.results[0].id
+                ),
+            )
+        except BaseException as e:
+            print(f"{e}")
 
 
 @Client.on_message(
