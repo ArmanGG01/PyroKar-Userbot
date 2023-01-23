@@ -14,10 +14,6 @@ import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
 from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
     Message,
 )
 
