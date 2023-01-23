@@ -28,6 +28,7 @@ from PyroKar.helpers.basic import edit_or_reply
 from PyroKar.helpers.constants import WWW
 from PyroKar.helpers.PyroHelpers import SpeedConvert
 from PyroKar.utils.tools import get_readable_time
+from PyroKar.modules.bot.inline import get_readable_time
 from PyroKar.helpers.adminHelpers import DEVS
 
 from .help import add_command_help
