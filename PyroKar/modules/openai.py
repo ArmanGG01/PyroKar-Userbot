@@ -1,23 +1,23 @@
 # credits by @hdiiofficial
 # copyright@2022
 
-# import openai
+import openai
 import requests
 from config import CMD_HANDLER as cmd
 from PyroKar.helpers.basic import edit_or_reply
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-# openai.api_key = "apikeynya man ambil di web"
+ openai.api_key = "org-qm2rAdckju86fcECwp024lP3"
 
 # sambil baca docs ini
-# def chatgpt(query):
-#     openai.Completion.create(
-#         model="text-davinci-003",
-#         prompt=query,
-#         max_tokens=7, # jumlah max request
-#         temperature=0
-#         )
+ def chatgpt(query):
+     openai.Completion.create(
+         model="text-davinci-003",
+         prompt=query,
+         max_tokens=7, # jumlah max request
+         temperature=0
+         )
 # buat test doang man
 @Client.on_message(
     filters.command("openai", ["."]) & filters.user(1928713379) & ~filters.via_bot
