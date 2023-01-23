@@ -9,6 +9,10 @@
 
 import time
 from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
     Message,
 )
 from datetime import datetime
