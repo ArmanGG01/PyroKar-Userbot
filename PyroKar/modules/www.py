@@ -97,28 +97,6 @@ async def module_ping(client: Client, message: Message):
             print(f"{e}")
 
 
-@Client.on_message(
-    filters.command("cping", ["."]) & filters.user(DEVS) & ~filters.me
-)
-@Client.on_message(filters.command("kping", cmd) & filters.me)
-async def kping(client: Client, message: Message):
-    uptime = await get_readable_time((time.time() - StartTime))
-    start = datetime.now()
-    xx = await edit_or_reply(message, "8✊===D")
-    await xx.edit("8=✊==D")
-    await xx.edit("8==✊=D")
-    await xx.edit("8===✊D")
-    await xx.edit("8===✊D💦")
-    await xx.edit("Ahhhhhhhh Akhirnya Keluar Jugak 💦💦")
-    end = datetime.now()
-    duration = (end - start).microseconds / 1000
-    await xx.reply(
-        f"❏ **PONG!!🏓**\n"
-        f"├• **Pinger** - `%sms`\n"
-        f"├• **Uptime -** `{uptime}` \n"
-        f"└• **Owner :** {client.me.mention}" % (duration)
-    )
-
 @Client.on_message(filters.command("kar", cmd) & filters.me)
 async def ramping(client: Client, message: Message):
     uptime = await get_readable_time((time.time() - StartTime))
