@@ -32,6 +32,7 @@ BRANCH = getenv("BRANCH", "main") #don't change
 CMD_HNDLR = cmd
 OWNER_ID = getenv("OWNER_ID", "")
 BOT_TOKEN = getenv("BOT_TOKEN", "")
+OPENAI_API = getenv("OPENAI_API", "")
 CHANNEL = getenv("CHANNEL", "Karc0de")
 CMD_HANDLER = getenv("CMD_HANDLER", ".")
 DB_URL = getenv("DATABASE_URL", "")
