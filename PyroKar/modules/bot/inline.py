@@ -18,9 +18,12 @@ from pyrogram.types import (
     Message,
 )
 
+from config import BOT_VER, BRANCH as branch
 from PyroKar import CMD_HELP, StartTime, app
 from PyroKar.helpers.data import Data
 from PyroKar.helpers.inline import inline_wrapper, paginate_help
+
+modules = CMD_HELP
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -102,6 +105,30 @@ async def ping_function(message: Message, answers):
     return answers
 
 
+async def ping_function(message: Message, answers):
+    msg = (
+        f"𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 \n"
+        "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
+        f"ㅤㅤㅤㅤmodules:</b> <code>{len(modules)} Modules</code> \n"
+        f"ㅤㅤㅤㅤbot version: {BOT_VER} \n"
+        f"ㅤㅤㅤㅤbranch: {branch} \n\n"
+    )
+    answers.append(
+        InlineQueryResultArticle(
+            title="kar",
+            description="Check Bot's Stats",
+            thumb_url="https://telegra.ph//file/5f3929a7c65ed2dfd93db.jpg",
+            input_message_content=InputTextMessageContent(
+                msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+            ),
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="•support•", url="t.me/obrolansuar"), InlineKeyboardButton(text="•owner•", url="t.me/PakkPoll")], [InlineKeyboardButton(text="•menu inline•", callback_data="reopen")]]
+            ),
+        )
+    )
+    return answers
+
+
 async def help_function(answers):
     bttn = paginate_help(0, CMD_HELP, "helpme")
     answers.append(
@@ -134,6 +161,9 @@ async def inline_query_handler(client: Client, query):
             answers = await help_function(answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
         elif string_given.startswith("ping"):
+            answers = await ping_function(query, answers)
+            await client.answer_inline_query(query.id, results=answers, cache_time=0)
+        elif string_given.startswith("rama"):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
