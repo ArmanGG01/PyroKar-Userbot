@@ -15,6 +15,7 @@ from pyrogram.types import (
 
 from PyroKar import CMD_HELP, StartTime, app
 from PyroKar.helpers.data import Data
+from PyroKar.modules.bot.inline import get_readable_time
 from PyroKar.helpers.inline import inline_wrapper, paginate_help
 
 async def get_readable_time(seconds: int) -> str:
