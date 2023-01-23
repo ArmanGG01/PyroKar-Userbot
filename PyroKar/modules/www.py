@@ -8,6 +8,7 @@
 # t.me/SharingUserbot & t.me/Lunatic0de
 
 import time
+import asyncio
 from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
