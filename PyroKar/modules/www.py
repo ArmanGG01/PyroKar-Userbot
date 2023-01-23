@@ -13,7 +13,7 @@ from datetime import datetime
 import speedtest
 from pyrogram import Client, filters
 from pyrogram.raw import functions
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent, Message
+from pyrogram.types import Message
 
 from config import CMD_HANDLER as cmd
 from config import BOT_VER, BRANCH as brch
