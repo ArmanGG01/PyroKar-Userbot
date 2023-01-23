@@ -26,6 +26,7 @@ from config import BOT_VER, BRANCH as brch
 from PyroKar import CMD_HELP, StartTime
 from PyroKar.helpers.basic import edit_or_reply
 from PyroKar.helpers.constants import WWW
+from PyroKar import app 
 from PyroKar.helpers.PyroHelpers import SpeedConvert
 from PyroKar.utils.tools import get_readable_time
 from PyroKar.modules.bot.inline import get_readable_time
