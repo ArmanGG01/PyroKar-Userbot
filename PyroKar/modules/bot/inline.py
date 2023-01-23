@@ -17,11 +17,10 @@ from pyrogram.types import (
     InputTextMessageContent,
     Message,
 )
-
-from config import BOT_VER, BRANCH as branch
-from PyroKar import CMD_HELP, StartTime, app
 from PyroKar.helpers.data import Data
 from PyroKar.helpers.inline import inline_wrapper, paginate_help
+from config import BOT_VER, BRANCH as branch
+from PyroKar import CMD_HELP, StartTime, app
 
 modules = CMD_HELP
 
@@ -163,7 +162,7 @@ async def inline_query_handler(client: Client, query):
         elif string_given.startswith("ping"):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
-        elif string_given.startswith("rama"):
+        elif string_given.startswith("kar"):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
