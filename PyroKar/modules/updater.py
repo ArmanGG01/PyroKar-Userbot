@@ -26,14 +26,14 @@ from pyrogram.types import Message
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from ProjectMan.helpers.adminHelpers import DEVS
-from ProjectMan.helpers.basic import
+from PyroKar.helpers.adminHelpers import DEVS
+from PyroKar.helpers.basic import
 edit_or_reply
-from ProjectMan.helpers.misc import HAPP, XCB
-from ProjectMan.helpers.tools import get_arg
-from ProjectMan.utils.misc import restart
-from ProjectMan.utils.pastebin import PasteBin
-from ProjectMan.utils.tools import bash
+from PyroKar.helpers.misc import HAPP, XCB
+from PyroKar.helpers.tools import get_arg
+from PyroKar.utils.misc import restart
+from PyroKar.utils.pastebin import PasteBin
+from PyroKar.utils.tools import bash
 
 from .help import add_command_help
 
@@ -204,7 +204,7 @@ async def upstream(client: Client, message: Message):
         await status.edit(
             "`PyroKar-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "ProjectMan"]
+        args = [sys.executable, "-m", "PyroKar"]
         execle(sys.executable, *args, environ)
         return
 
