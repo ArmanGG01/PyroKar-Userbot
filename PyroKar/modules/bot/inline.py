@@ -86,7 +86,7 @@ async def ping_function(message: Message, answers):
     msg = (
         f"<b>💢𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭💢</b>\n\n"
         f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>"
-        f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n""
+        f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>"
     )
     answers.append(
         InlineQueryResultArticle(
