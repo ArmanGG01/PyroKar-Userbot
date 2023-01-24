@@ -26,14 +26,13 @@ from pyrogram.types import Message
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from PyroKar.helpers.adminHelpers import DEVS
-from PyroKar.helpers.basic import
-edit_or_reply
-from PyroKar.helpers.misc import HAPP, XCB
-from PyroKar.helpers.tools import get_arg
-from PyroKar.utils.misc import restart
-from PyroKar.utils.pastebin import PasteBin
-from PyroKar.utils.tools import bash
+from ProjectMan.helpers.adminHelpers import DEVS
+from ProjectMan.helpers.basic import edit_or_reply
+from ProjectMan.helpers.misc import HAPP, XCB
+from ProjectMan.helpers.tools import get_arg
+from ProjectMan.utils.misc import restart
+from ProjectMan.utils.pastebin import PasteBin
+from ProjectMan.utils.tools import bash
 
 from .help import add_command_help
 
@@ -161,7 +160,7 @@ async def upstream(client: Client, message: Message):
         heroku_applications = heroku.apps()
         if not HEROKU_APP_NAME:
             await status.edit(
-                                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
+                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
             )
             repo.__del__()
             return
@@ -176,7 +175,7 @@ async def upstream(client: Client, message: Message):
             repo.__del__()
             return
         await status.edit(
-            "`[HEROKU]: Update Deploy PyroKar-Userbot Sedang Dalam Proses...`"
+            "`[HEROKU]: Update Deploy PyroMan-Userbot Sedang Dalam Proses...`"
         )
         ups_rem.fetch(ac_br)
         repo.git.reset("--hard", "FETCH_HEAD")
@@ -193,7 +192,7 @@ async def upstream(client: Client, message: Message):
         except GitCommandError:
             pass
         await status.edit(
-            "`PyroKar-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
+            "`PyroMan-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`"
         )
     else:
         try:
@@ -202,9 +201,9 @@ async def upstream(client: Client, message: Message):
             repo.git.reset("--hard", "FETCH_HEAD")
         await updateme_requirements()
         await status.edit(
-            "`PyroKar-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
+            "`PyroMan-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "PyroKar"]
+        args = [sys.executable, "-m", "ProjectMan"]
         execle(sys.executable, *args, environ)
         return
 
@@ -271,7 +270,7 @@ async def updaterman(client: Client, message: Message):
 add_command_help(
     "update",
     [
-        ["update", "Untuk melihat list pembaruan terbaru dari PyroKar-Userbot."],
+        ["update", "Untuk melihat list pembaruan terbaru dari PyroMan-Userbot."],
         ["update deploy", "Untuk mengupdate userbot."],
     ],
 )
