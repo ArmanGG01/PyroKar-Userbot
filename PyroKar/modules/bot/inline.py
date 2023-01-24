@@ -84,9 +84,10 @@ async def ping_function(message: Message, answers):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
-        f"<b>Kar - Pyro!!🎈</b>\n\n"
-        f"Pɪɴɢᴇʀ :</b> <code>{duration}ms</code>\n"
-        f"Uᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>"
+        f"<b>💢𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭💢</b>\n\n"
+        f"├• **Pinger** - `%sms`\n"
+        f"├• **Uptime -** `{uptime}` \n"
+        f"└• **Owner :** {client.me.mention}" % (duration)"
     )
     answers.append(
         InlineQueryResultArticle(
