@@ -12,11 +12,12 @@ import shlex
 import socket
 from typing import Tuple
 
+import dotenv
 import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 
-from config import BRANCH, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
+from config import BRANCH, GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
 from PyroKar import LOGGER
 
 HAPP = None
@@ -98,7 +99,7 @@ def git():
         LOGGER("PyroKar").info("Fetched Latest Updates")
 
 
-async def is_heroku():
+def is_heroku():
     return "heroku" in socket.getfqdn()
 
 
@@ -115,7 +116,8 @@ def heroku():
                 LOGGER("Heroku").info(
                     f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
                 )
-                
+
+
 async def in_heroku():
     return "heroku" in socket.getfqdn()
 
@@ -126,9 +128,9 @@ async def create_botlog(client):
     LOGGER("PyroKar").info(
         "TUNGGU SEBENTAR. SEDANG MEMBUAT GROUP LOG USERBOT UNTUK ANDA"
     )
-    desc = "Group Log untuk PyroKar-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n👑 Powered By ~ @Karc0de 👑"
+    desc = "Group Log untuk PyroKar-UserBot.\n\nHARAP JANGAN KELUAR DARI GROUP INI.\n\n💢 Powered By ~ @Karc0de 💢"
     try:
-        gruplog = await client.create_supergroup("PyroKar UserBot", desc)
+        gruplog = await client.create_supergroup("PyroKar UserBot Log", desc)
         if await in_heroku():
             heroku_var = HAPP.config()
             heroku_var["BOTLOG_CHATID"] = gruplog.id
@@ -139,4 +141,3 @@ async def create_botlog(client):
         LOGGER("PyroKar").warning(
             "var BOTLOG_CHATID kamu belum di isi. Buatlah grup telegram dan masukan bot @MissRose_bot lalu ketik /id Masukan id grup nya di var BOTLOG_CHATID"
         )
-
