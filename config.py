@@ -47,10 +47,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 PMPERMIT_PIC = getenv("PMPERMIT_PIC", None)
 PM_AUTO_BAN = strtobool(getenv("PM_AUTO_BAN", "True"))
-REPO_URL = getenv(
-    "REPO_URL",
-    jandigantinantierornanges("aHR0cHM6Ly9naXRodWIuY29tL0FybWFuR0cwMS9QeXJvS2FyLVVzZXJib3Q=").decode("utf-8"),
-)
+REPO_URL = getenv("REPO_URL", "https://github.com/ArmanGG01/PyroKar-Userbot")
 STRING_SESSION1 = getenv("STRING_SESSION1", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
 STRING_SESSION3 = getenv("STRING_SESSION3", "")
