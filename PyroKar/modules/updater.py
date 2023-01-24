@@ -26,13 +26,14 @@ from pyrogram.types import Message
 from config import BRANCH
 from config import CMD_HANDLER as cmd
 from config import GIT_TOKEN, HEROKU_API_KEY, HEROKU_APP_NAME, REPO_URL
-from PyroKar.helpers.adminHelpers import DEVS
-from PyroKar.helpers.basic import edit_or_reply
-from PyroKar.helpers.misc import HAPP, XCB
-from PyroKar.helpers.tools import get_arg
-from PyroKar.utils.misc import restart
-from PyroKar.utils.pastebin import PasteBin
-from PyroKar.utils.tools import bash
+from ProjectMan.helpers.adminHelpers import DEVS
+from ProjectMan.helpers.basic import
+edit_or_reply
+from ProjectMan.helpers.misc import HAPP, XCB
+from ProjectMan.helpers.tools import get_arg
+from ProjectMan.utils.misc import restart
+from ProjectMan.utils.pastebin import PasteBin
+from ProjectMan.utils.tools import bash
 
 from .help import add_command_help
 
@@ -40,7 +41,10 @@ if GIT_TOKEN:
     GIT_USERNAME = REPO_URL.split("com/")[1].split("/")[0]
     TEMP_REPO = REPO_URL.split("https://")[1]
     UPSTREAM_REPO = f"https://{GIT_USERNAME}:{GIT_TOKEN}@{TEMP_REPO}"
-UPSTREAM_REPO_URL = UPSTREAM_REPO
+    UPSTREAM_REPO_URL = UPSTREAM_REPO
+else:
+    UPSTREAM_REPO_URL = REPO_URL
+
 requirements_path = path.join(
     path.dirname(path.dirname(path.dirname(__file__))), "requirements.txt"
 )
@@ -157,7 +161,7 @@ async def upstream(client: Client, message: Message):
         heroku_applications = heroku.apps()
         if not HEROKU_APP_NAME:
             await status.edit(
-                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
+                                "`Please set up the HEROKU_APP_NAME variable to be able to update userbot.`"
             )
             repo.__del__()
             return
@@ -200,7 +204,7 @@ async def upstream(client: Client, message: Message):
         await status.edit(
             "`PyroKar-Userbot Berhasil Diupdate! Userbot bisa di Gunakan Lagi.`",
         )
-        args = [sys.executable, "-m", "PyroKar"]
+        args = [sys.executable, "-m", "ProjectMan"]
         execle(sys.executable, *args, environ)
         return
 
