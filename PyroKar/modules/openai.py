@@ -8,7 +8,7 @@ from PyroKar.helpers.basic import edit_or_reply
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
- # openai.api_key = "org-qm2rAdckju86fcECwp024lP3"
+ # openai.api_key = "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"
 
 # sambil baca docs ini
 # def chatgpt(query):
