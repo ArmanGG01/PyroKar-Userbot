@@ -101,7 +101,7 @@ async def module_ping(client: Client, message: Message):
 
 
 @Client.on_message(filters.command("kar", cmd) & filters.me)
-async def module_ping(client: Client, message: Message):
+async def module_karman(client: Client, message: Message):
     cdm = message.command
     help_arg = ""
     bot_username = (await app.get_me()).username
