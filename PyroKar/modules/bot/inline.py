@@ -78,15 +78,15 @@ async def alive_function(message: Message, answers):
     return answers
 
 
-async def karman_function(message: Message, answers):
+async def ping_function(message: Message, answers):
     start = datetime.now()
     uptime = await get_readable_time((time.time() - StartTime))
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     msg = (
         f"<b>💢𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭💢</b>\n\n"
-        f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>"
-        f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>"
+        f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
+        f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
     )
     answers.append(
         InlineQueryResultArticle(
