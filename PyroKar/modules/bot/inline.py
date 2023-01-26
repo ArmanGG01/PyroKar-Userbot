@@ -104,7 +104,7 @@ async def ping_function(message: Message, answers):
     return answers
 
 
-async def ping_function(message: Message, answers):
+async def karman_function(message: Message, answers):
     msg = (
         f"𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭 \n"
         "ㅤㅤStatus : 𝘗𝘳𝘦𝘮𝘪𝘶𝘮 \n"
