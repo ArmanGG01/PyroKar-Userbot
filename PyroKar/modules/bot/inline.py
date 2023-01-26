@@ -78,7 +78,7 @@ async def alive_function(message: Message, answers):
     return answers
 
 
-async def ping_function(message: Message, answers):
+async def karman_function(message: Message, answers):
     start = datetime.now()
     uptime = await get_readable_time((time.time() - StartTime))
     end = datetime.now()
@@ -163,7 +163,7 @@ async def inline_query_handler(client: Client, query):
             answers = await ping_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=5)
         elif string_given.startswith("kar"):
-            answers = await ping_function(query, answers)
+            answers = await karman_function(query, answers)
             await client.answer_inline_query(query.id, results=answers, cache_time=0)
     except Exception as e:
         e = traceback.format_exc()
