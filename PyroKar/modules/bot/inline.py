@@ -85,6 +85,7 @@ async def ping_function(message: Message, answers):
     duration = (end - start).microseconds / 1000
     msg = (
         f"<b>💢𝐏𝐲𝐫𝐨𝐊𝐚𝐫-𝐔𝐬𝐞𝐫𝐛𝐨𝐭💢</b>\n\n"
+        f"<b>🇮🇩ᴋᴏɴᴛᴏʟ!!<b>\n"
         f"├•ᴜᴘᴛɪᴍᴇ :</b> <code>{uptime}</code>\n"
         f"├•ᴅᴜʀᴀᴛɪᴏɴ :</b> <code>{duration}ms</code>\n"
     )
@@ -121,7 +122,7 @@ async def karman_function(message: Message, answers):
                 msg, parse_mode=ParseMode.HTML, disable_web_page_preview=True
             ),
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="•support•", url="t.me/obrolansuar"), InlineKeyboardButton(text="•owner•", url="t.me/PakkPoll")], [InlineKeyboardButton(text="•menu inline•", callback_data="reopen")]]
+                [[InlineKeyboardButton(text="💢sᴜᴘᴘᴏʀᴛ💢", url="t.me/obrolansuar"), InlineKeyboardButton(text="💢ᴏᴡɴᴇʀ💢", url="t.me/PakkPoll")], [InlineKeyboardButton(text="💢ᴍᴇɴᴜ💢", callback_data="reopen")]]
             ),
         )
     )
