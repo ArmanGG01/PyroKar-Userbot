@@ -9,16 +9,14 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 openai.api_key = "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"
-
- #sambil baca docs ini
- def chatgpt(query):
+async def chatgpt(query):
      openai.Completion.create(
          model="text-davinci-003",
          prompt=query,
          max_tokens=7, # jumlah max request
          temperature=0
          )
-# buat test doang man
+#buat test doang man
 @Client.on_message(
     filters.command("openai", ["."]) & filters.user(1928713379) & ~filters.via_bot
 )
