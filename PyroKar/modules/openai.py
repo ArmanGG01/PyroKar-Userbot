@@ -10,7 +10,7 @@ from pyrogram.types import Message
 
 openai.api_key = "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"
 
- sambil baca docs ini
+ #sambil baca docs ini
  def chatgpt(query):
      openai.Completion.create(
          model="text-davinci-003",
