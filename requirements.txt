@@ -5,6 +5,7 @@ asyncio
 bs4
 dnspython
 emoji
+openai
 gitpython
 google-search==1.1.1
 google==3.0.0
