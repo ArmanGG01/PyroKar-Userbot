@@ -25,5 +25,5 @@ async def chatgpt(client: Client, message: Message):
     Hdi = message.text
     Hadi = Hdi.split(" ", 1)[1]
     ganteng = await edit_or_reply(message, "`Wait.....`")
-    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={Hadi}", timeout=5).json()["response"]
-    ganteng.edit_text(f"{ai_gen}\n\n\nCredits by @hdiiofficial")
+    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={Arman}", timeout=5).json()["response"]
+    ganteng.edit_text(f"{ai_gen}\n\n\nCredits by @Karc0de")
