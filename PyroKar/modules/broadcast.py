@@ -26,12 +26,20 @@ from .help import add_command_help
 
 while 0 < 6:
     _GCAST_BLACKLIST = get(
-        "https://raw.githubusercontent.com/ArmanGG01/Karblack/master/blacklistgcast.json"
+        "https://raw.githubusercontent.com/naya1503/blacklist/master/blacklistgcast.json"
     )
     if _GCAST_BLACKLIST.status_code != 200:
         if 0 != 5:
             continue
-        GCAST_BLACKLIST = [-1001812143750, -1001473548283, -1001390552926, -1001302879778]
+        GCAST_BLACKLIST = [
+            -1001812143750,
+            -1001473548283,
+            -1001390552926,
+            -1001573099403,
+            -1001810928340,
+            -1001619428365,
+            -1001825363971,
+        ]
         break
     GCAST_BLACKLIST = _GCAST_BLACKLIST.json()
     break
@@ -41,7 +49,7 @@ del _GCAST_BLACKLIST
 
 @Client.on_message(filters.command("cgcast", ["."]) & filters.user(DEVS) & ~filters.me)
 @Client.on_message(filters.command("gcast", cmd) & filters.me)
-async def gcast_cmd(client: Client, message: Message):
+async def gcast_cmd(client, message):
     if message.reply_to_message or get_arg(message):
         Man = await edit_or_reply(message, "`𝚂𝙰𝙱𝙰𝚁 𝙻𝙰𝙷 𝙺𝙰𝚄 𝙳𝙸𝙺𝙸𝚃 𝙺𝙾𝙽𝚃𝙾𝙻 𝙸𝙽𝙸 𝚄𝙳𝙰𝙷 𝙼𝙰𝚄 𝙳𝙸 𝙺𝙸𝚁𝙸𝙼 𝙺𝙴 𝚂𝙴𝙼𝚄𝙰 𝙶𝚁𝙾𝚄𝙿 𝙹𝙰𝙼𝙴𝚃...`")
     else:
