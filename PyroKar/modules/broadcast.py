@@ -18,7 +18,7 @@ from config import BLACKLIST_GCAST
 from config import CMD_HANDLER as cmd
 from PyroKar.helpers.adminHelpers import DEVS
 from PyroKar.helpers.basic import edit_or_reply
-#from PyroKar.helpers.misc import HAPP, in_heroku
+from PyroKar.helpers.misc import HAPP, in_heroku
 from PyroKar.helpers.tools import get_arg
 from PyroKar.utils.misc import restart
 
@@ -124,7 +124,7 @@ async def blchatgcast(client: Client, message: Message):
         await edit_or_reply(message, "🔮 **Blacklist GCAST:** `Disabled`")
 
 
-# @Client.on_message(filters.command("addblacklist", cmd) & filters.me)
+@Client.on_message(filters.command("addblacklist", cmd) & filters.me)
 async def addblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
@@ -152,7 +152,7 @@ async def addblacklist(client: Client, message: Message):
     restart()
 
 
-# @Client.on_message(filters.command("delblacklist", cmd) & filters.me)
+@Client.on_message(filters.command("delblacklist", cmd) & filters.me)
 async def delblacklist(client: Client, message: Message):
     xxnx = await edit_or_reply(message, "`Processing...`")
     if HAPP is None:
