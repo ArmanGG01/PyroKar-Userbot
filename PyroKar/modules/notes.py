@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from PyroKar.helpers import *
 from PyroKar.helpers.SQL.notes_sql import *
 from PyroKar.utils import *
-from Pyrokar import *
+from PyroKar import *
 from .help import add_command_help
 
 cmd = [",", ".", "?", "*", "!" "$",]
