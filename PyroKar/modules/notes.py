@@ -2,10 +2,10 @@ from asyncio import sleep
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from Uputt.helpers import *
-from Uputt.helpers.SQL.notes_sql import *
-from Uputt.utils import *
-from Uputt import *
+from PyroKar.helpers import *
+from PyroKar.helpers.SQL.notes_sql import *
+from PyroKar.utils import *
+from Pyrokar import *
 from .help import add_command_help
 
 cmd = [",", ".", "?", "*", "!" "$",]
