@@ -7,6 +7,8 @@
 
 from asyncio import sleep
 
+from config import CMD_HANDLER as cmd
+
 from pyrogram import Client, filters
 
 
