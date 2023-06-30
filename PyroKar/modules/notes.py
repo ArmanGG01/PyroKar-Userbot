@@ -10,7 +10,7 @@ from requests import get
 from config import CMD_HANDLER as cmd
 from pyrogram.types import Message
 
-from PyroKar.helpers.tools import get_arg
+from PyroKar.helpers.tools import get_arg, get_me
 
 from pyrogram import Client, filters
 from .help import *
