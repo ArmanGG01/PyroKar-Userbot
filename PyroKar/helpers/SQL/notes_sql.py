@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Numeric, String, UnicodeText
 
-from Uputt.helpers.SQL import BASE, SESSION
+from PyroKar.helpers.SQL import BASE, SESSION
 
 
 class Note(BASE):
