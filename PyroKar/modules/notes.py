@@ -7,7 +7,7 @@
 
 from asyncio import sleep
 
-from pyrogram import filters
+from pyrogram import Client, filters
 
 
 
