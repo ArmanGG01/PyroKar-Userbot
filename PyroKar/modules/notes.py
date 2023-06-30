@@ -24,7 +24,7 @@ async def simpan_note(client, message: Message):
     msg = message.reply_to_message
     if not msg:
         return await message.reply("`Silakan balas ke pesan.`")
-    botlog_chat_id = await get_botlog(user_id)
+    botlog_chat_id = await get_me(user_id)
     if not botlog_chat_id:
         return await message.reply(
             "`Maaf, tidak dapat menemukan ID chat log bot.`\nPastikan Anda Telah Mengtur Log Group Anda"
@@ -46,7 +46,7 @@ async def simpan_note(client, message: Message):
 async def panggil_notes(client, message: Message):
     name = get_arg(message)
     user_id = message.from_user.id
-    botlog_chat_id = await get_botlog(user_id)
+    botlog_chat_id = await get_me(user_id)
     _note = await get_note(user_id, name)
     if not _note:
         return await message.reply("`Tidak ada catatan seperti itu.`")
@@ -69,7 +69,7 @@ async def remove_notes(client, message: Message):
 @Client.on_message(filters.me & filters.command("notes", cmd))
 async def get_notes(client, message):
     user_id = message.from_user.id
-    await get_botlog(user_id)
+    await get_me(user_id)
     _notes = await get_note_names(user_id)
     if not _notes:
         return await message.reply("**Tidak ada catatan.**")
