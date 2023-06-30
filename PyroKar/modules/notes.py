@@ -9,7 +9,6 @@ from asyncio import sleep
 
 from pyrogram import filters
 
-from PyroKar import *
 
 
 @bots.on_message(filters.me & filters.command("save", cmd))
