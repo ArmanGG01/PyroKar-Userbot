@@ -17,7 +17,7 @@ from .help import *
 
 
 @Client.on_message(filters.me & filters.command("save", cmd))
-async def simpan_note(client, message: Message)
+async def simpan_note(client, message: Message):
     name = get_arg(message)
     user_id = message.from_user.id
     message.chat.id
@@ -43,7 +43,7 @@ async def simpan_note(client, message: Message)
 
 
 @Client.on_message(filters.me & filters.command("get", cmd))
-async def panggil_notes(client, message):
+async def panggil_notes(client, message: Message):
     name = get_arg(message)
     user_id = message.from_user.id
     botlog_chat_id = await get_botlog(user_id)
@@ -56,7 +56,7 @@ async def panggil_notes(client, message):
 
 
 @Client.on_message(filters.me & filters.command("rm", cmd))
-async def remove_notes(client, message):
+async def remove_notes(client, message: Message):
     name = get_arg(message)
     user_id = message.from_user.id
     deleted = await delete_note(user_id, name)
@@ -79,7 +79,7 @@ async def get_notes(client, message):
     await message.reply(msg)
 
 
-__MODULE__ = "notes"
+__MODULE__= "notes"
 __HELP__ = f"""
 ✘ Bantuan Untuk Notes
 
