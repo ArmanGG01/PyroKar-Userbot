@@ -11,7 +11,7 @@ from pyrogram import filters
 
 
 
-@bots.on_message(filters.me & filters.command("save", cmd))
+@Client.on_message(filters.me & filters.command("save", cmd))
 async def simpan_note(client, message):
     name = get_arg(message)
     user_id = message.from_user.id
@@ -37,7 +37,7 @@ async def simpan_note(client, message):
     await message.reply(f"**Berhasil menyimpan catatan dengan nama** `{name}`")
 
 
-@bots.on_message(filters.me & filters.command("get", cmd))
+@Client.on_message(filters.me & filters.command("get", cmd))
 async def panggil_notes(client, message):
     name = get_arg(message)
     user_id = message.from_user.id
@@ -50,7 +50,7 @@ async def panggil_notes(client, message):
     await msg_o.copy(message.chat.id, reply_to_message_id=msg.id)
 
 
-@bots.on_message(filters.me & filters.command("rm", cmd))
+@Client.on_message(filters.me & filters.command("rm", cmd))
 async def remove_notes(client, message):
     name = get_arg(message)
     user_id = message.from_user.id
@@ -61,7 +61,7 @@ async def remove_notes(client, message):
         await message.reply(f"**Tidak dapat menemukan catatan:** `{name}`")
 
 
-@bots.on_message(filters.me & filters.command("notes", cmd))
+@Client.on_message(filters.me & filters.command("notes", cmd))
 async def get_notes(client, message):
     user_id = message.from_user.id
     await get_botlog(user_id)
