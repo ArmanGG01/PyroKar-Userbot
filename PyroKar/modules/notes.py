@@ -8,6 +8,7 @@
 from asyncio import sleep
 from requests import get
 from config import CMD_HANDLER as cmd
+from pyrogram.types import Message
 
 from PyroKar.helpers.tools import get_arg
 
@@ -16,7 +17,7 @@ from .help import *
 
 
 @Client.on_message(filters.me & filters.command("save", cmd))
-async def simpan_note(client, message):
+async def simpan_note(client, message: Message)
     name = get_arg(message)
     user_id = message.from_user.id
     message.chat.id
