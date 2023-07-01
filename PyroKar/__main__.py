@@ -6,7 +6,7 @@ from uvloop import install
 from PyroKar.modules import ALL_MODULES
 from PyroKar import BOTLOG_CHATID, LOGGER, LOOP, aiosession, app, bots, ids
 from PyroKar.modules.basic import join
-from PyroKar.helpers.misc import create_botlog, heroku
+from PyroKar.helpers.misc import heroku
 
 BOT_VER = "0.1.0"
 CMD_HANDLER = ["." "," "?" "!"]
