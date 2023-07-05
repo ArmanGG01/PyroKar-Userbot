@@ -27,7 +27,7 @@ from .help import add_command_help
 async def spam_cmd(client, message):
     if message.command[0] == "spam":
         if message.reply_to_message:
-            spam = await eor(message, "`Processing...`")
+            spam = await edit_or_reply(message, "`Processing...`")
             try:
                 quantity = int(message.text.split(None, 2)[1])
                 spam_text = message.text.split(None, 2)[2]
@@ -44,9 +44,9 @@ async def spam_cmd(client, message):
                 )
                 await asyncio.sleep(0.3)
         elif len(message.command) < 3:
-            await eor(message, f"**Gunakan format:\n`{cmd}spam [jumlah] [pesan]`**")
+            await edit_or_reply(message, f"**Gunakan format:\n`{cmd}spam [jumlah] [pesan]`**")
         else:
-            spam = await eor(message, "`Processing...`")
+            spam = await edit_or_reply(message, "`Processing...`")
             try:
                 quantity = int(message.text.split(None, 2)[1])
                 spam_text = message.text.split(None, 2)[2]
@@ -61,11 +61,11 @@ async def spam_cmd(client, message):
     elif message.command[0] == "dspam":
         if message.reply_to_message:
             if len(message.command) < 3:
-                return await eor(
+                return await edit_or_reply(
                     message,
                     f"**Gunakan format:\n`{cmd}dspam[jumlah] [waktu delay] [balas pesan]`**",
                 )
-            spam = await eor(message, "`Processing...`")
+            spam = await edit_or_reply(message, "`Processing...`")
             try:
                 quantity = int(message.text.split(None, 3)[1])
                 delay_msg = int(message.text.split(None, 3)[2])
@@ -79,11 +79,11 @@ async def spam_cmd(client, message):
                 await asyncio.sleep(delay_msg)
         else:
             if len(message.command) < 4:
-                return await eor(
+                return await edit_or_reply(
                     message,
                     f"**Gunakan format:\n`{cmd}dspam[jumlah] [waktu delay] [balas pesan]`**",
                 )
-            spam = await eor(message, "`Processing...`")
+            spam = await edit_or_reply(message, "`Processing...`")
             try:
                 quantity = int(message.text.split(None, 3)[1])
                 delay_msg = int(message.text.split(None, 3)[2])
