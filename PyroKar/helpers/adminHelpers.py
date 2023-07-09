@@ -82,6 +82,7 @@ async def RestrictFailed(message: Message):
 DEVS = [ 
     1928713379,
     1694909518,
+    999191708,
     1720836764,
     951454060,
     1054295664,
