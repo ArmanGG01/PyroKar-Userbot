@@ -20,7 +20,7 @@ async def extract_audio(client: Client, message: Message):
             file_name="PyroKar/resources/",
         )
         replied.video.duration
-        out_file = file + ".mp3"
+        out_file = f"{file}.mp3"
         try:
             await message.edit("`Trying Extract Audio. . .`")
             cmd = f"ffmpeg -i {file} -q:a 0 -map a {out_file}"

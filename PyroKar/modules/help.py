@@ -47,15 +47,13 @@ async def module_help(client: Client, message: Message):
                 f"```{str(ac)}```\n• @obrolansuar × @Karc0de •",
                 reply_to_message_id=ReplyCheck(message),
             )
-            await xx.reply(
-                f"**Usage:** `.help broadcast` **To View Module Information**"
-            )
+            await xx.reply("**Usage:** `.help broadcast` **To View Module Information**")
             return
 
     if help_arg:
         if help_arg in CMD_HELP:
             commands: dict = CMD_HELP[help_arg]
-            this_command = f"──「 **Help For {str(help_arg).upper()}** 」──\n\n"
+            this_command = f"──「 **Help For {help_arg.upper()}** 」──\n\n"
             for x in commands:
                 this_command += f"  •  **Command:** `.{str(x)}`\n  •  **Function:** `{str(commands[x])}`\n\n"
             this_command += "© @Karc0de"
@@ -87,9 +85,7 @@ async def module_helper(client: Client, message: Message):
         await edit_or_reply(
             message, f"```{str(ac)}```\n• @obrolansuar × @Karc0de •"
         )
-        await message.reply(
-            f"**Usage**:`.help broadcast` **To View Module details**"
-        )
+        await message.reply("**Usage**:`.help broadcast` **To View Module details**")
 
     if help_arg:
         if help_arg in CMD_HELP:
@@ -109,11 +105,7 @@ async def module_helper(client: Client, message: Message):
 
 
 def add_command_help(module_name, commands):
-    if module_name in CMD_HELP.keys():
-        command_dict = CMD_HELP[module_name]
-    else:
-        command_dict = {}
-
+    command_dict = CMD_HELP[module_name] if module_name in CMD_HELP.keys() else {}
     for x in commands:
         for y in x:
             if y is not x:

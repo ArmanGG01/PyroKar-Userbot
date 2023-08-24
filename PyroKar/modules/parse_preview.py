@@ -44,7 +44,9 @@ async def parse(client: Client, message: Message):
     wpp = r.web_page
     body = {
         "Title": [wpp.title or "Null"],
-        "Description": [(wpp.description[:50] + "...") if wpp.description else "Null"],
+        "Description": [
+            f"{wpp.description[:50]}..." if wpp.description else "Null"
+        ],
         "URL": [wpp.display_url or "Null"],
         "Author": [wpp.author or "Null"],
         "Site Name": [wpp.site_name or "Null"],
@@ -52,18 +54,18 @@ async def parse(client: Client, message: Message):
     }
     text = section("Preview", body)
     t = wpp.type
-    if t == "Photo":
-        media = wpp.photo
-        func = client.send_photo
-    elif t == "Audio":
+    if t == "Audio":
         media = wpp.audio
         func = client.send_audio
-    elif t == "Video":
-        media = wpp.video
-        func = client.send_video
     elif t == "Document":
         media = wpp.document
         func = client.send_document
+    elif t == "Photo":
+        media = wpp.photo
+        func = client.send_photo
+    elif t == "Video":
+        media = wpp.video
+        func = client.send_video
     else:
         media = None
         func = None

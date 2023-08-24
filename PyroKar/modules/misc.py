@@ -71,14 +71,14 @@ async def webshot(client: Client, message: Message):
 
 @Client.on_message(filters.command("type", cmd) & filters.me)
 async def types(client: Client, message: Message):
-    orig_text = message.text.split(prefix + "type ", maxsplit=1)[1]
+    orig_text = message.text.split(f"{prefix}type ", maxsplit=1)[1]
     text = orig_text
     tbp = ""
     typing_symbol = "▒"
     while tbp != orig_text:
         await message.edit(str(tbp + typing_symbol))
         await asyncio.sleep(0.10)
-        tbp = tbp + text[0]
+        tbp += text[0]
         text = text[1:]
         await message.edit(str(tbp))
         await asyncio.sleep(0.10)
@@ -91,7 +91,7 @@ async def deem(client: Client, message: Message):
     inp = message.text.split(None, 2)[1]
     user = await client.get_chat(inp)
     spam_text = " ".join(message.command[2:])
-    quantity = int(quantity)
+    quantity = quantity
 
     if message.reply_to_message:
         reply_to_id = message.reply_to_message.id
@@ -113,11 +113,12 @@ async def deem(client: Client, message: Message):
 async def duckgo(client: Client, message: Message):
     input_str = " ".join(message.command[1:])
     Man = await edit_or_reply(message, "`Processing...`")
-    sample_url = "https://duckduckgo.com/?q={}".format(input_str.replace(" ", "+"))
-    if sample_url:
+    if (
+        sample_url := f'https://duckduckgo.com/?q={input_str.replace(" ", "+")}'
+    ):
         link = sample_url.rstrip()
         await Man.edit_text(
-            "Let me 🦆 DuckDuckGo that for you:\n🔎 [{}]({})".format(input_str, link)
+            f"Let me 🦆 DuckDuckGo that for you:\n🔎 [{input_str}]({link})"
         )
     else:
         await Man.edit_text("something is wrong. please try again later.")
@@ -128,9 +129,8 @@ async def open_file(client: Client, m: Message):
     xd = await edit_or_reply(m, "`Reading File!`")
     f = await client.download_media(m.reply_to_message)
     if f:
-        _error = open(f, "r")
-        _error_ = _error.read()
-        _error.close()
+        with open(f, "r") as _error:
+            _error_ = _error.read()
         if len(_error_) >= 4096:
             await xd.edit("`Pasting to Spacebin!`")
             ext = "py"
@@ -208,8 +208,8 @@ add_command_help(
     "sosmed",
     [
         [
-            f"sosmed <link>",
+            "sosmed <link>",
             "Untuk Mendownload Media Dari Facebook / Tiktok / Instagram / Twitter / YouTube.",
-        ],
+        ]
     ],
 )

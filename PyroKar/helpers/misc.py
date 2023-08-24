@@ -69,9 +69,9 @@ def git():
         UPSTREAM_REPO = REPO_URL
     try:
         repo = Repo()
-        LOGGER("PyroKar").info(f"Git Client Found")
+        LOGGER("PyroKar").info("Git Client Found")
     except GitCommandError:
-        LOGGER("PyroKar").info(f"Invalid Git Command")
+        LOGGER("PyroKar").info("Invalid Git Command")
     except InvalidGitRepositoryError:
         repo = Repo.init()
         if "origin" in repo.remotes:
@@ -110,11 +110,11 @@ def heroku():
             try:
                 Heroku = heroku3.from_key(HEROKU_API_KEY)
                 HAPP = Heroku.app(HEROKU_APP_NAME)
-                LOGGER("PyroKar").info(f"Heroku App Configured")
+                LOGGER("PyroKar").info("Heroku App Configured")
             except BaseException as e:
                 LOGGER("Heroku").error(e)
                 LOGGER("Heroku").info(
-                    f"Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
+                    "Pastikan HEROKU_API_KEY dan HEROKU_APP_NAME anda dikonfigurasi dengan benar di config vars heroku."
                 )
 
 

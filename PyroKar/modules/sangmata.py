@@ -29,7 +29,7 @@ async def sg(client: Client, message: Message):
         try:
             user = await client.get_users(args)
         except Exception:
-            return await lol.edit(f"`Please specify a valid user!`")
+            return await lol.edit("`Please specify a valid user!`")
     bot = "SangMataInfo_bot"
     try:
         await client.send_message(bot, f"/search_id {user.id}")
@@ -42,16 +42,15 @@ async def sg(client: Client, message: Message):
         if not stalk:
             await message.edit_text("**Orang Ini Belum Pernah Mengganti Namanya**")
             return
-        elif stalk:
+        else:
             await message.edit(stalk.text)
             await stalk.delete()
 
     async for stalk in client.search_messages(bot, query="Username", limit=1):
         if not stalk:
             return
-        elif stalk:
-            await message.reply(stalk.text)
-            await stalk.delete()
+        await message.reply(stalk.text)
+        await stalk.delete()
 
 
 add_command_help(

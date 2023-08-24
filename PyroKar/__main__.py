@@ -23,7 +23,7 @@ async def main():
     await app.start()
     print("LOG: Founded Bot token Booting..")
     for all_module in ALL_MODULES:
-        importlib.import_module("PyroKar.modules" + all_module)
+        importlib.import_module(f"PyroKar.modules{all_module}")
         print(f"Successfully Imported {all_module} ")
     for bot in bots:
         try:

@@ -416,9 +416,9 @@ async def timer_blankx(client: Client, message: Message):
     )
     j = 10
     k = j
-    for j in range(j):
+    for _ in range(k):
         await message.edit(txt + str(k))
-        k = k + 10
+        k += 10
         await asyncio.sleep(1)
     await asyncio.sleep(1)
     await message.edit(

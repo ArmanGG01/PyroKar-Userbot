@@ -36,15 +36,6 @@ async def translate(client: Client, message: Message):
             text = message.reply_to_message.text
         else:
             text = message.reply_to_message.caption
-        try:
-            tekstr = await trl(text, targetlang=target)
-        except ValueError as err:
-            await edit_or_reply(
-                message,
-                f"**ERROR:** `{str(err)}`",
-                parse_mode=enums.ParseMode.MARKDOWN,
-            )
-            return
     else:
         input_str = (
             message.text.split(None, 2)[1]
@@ -56,15 +47,15 @@ async def translate(client: Client, message: Message):
         )
         text = message.text.split(None, 2)[2]
         target = input_str or "id"
-        try:
-            tekstr = await trl(text, targetlang=target)
-        except ValueError as err:
-            await edit_or_reply(
-                message,
-                "**ERROR:** `{}`".format(str(err)),
-                parse_mode=enums.ParseMode.MARKDOWN,
-            )
-            return
+    try:
+        tekstr = await trl(text, targetlang=target)
+    except ValueError as err:
+        await edit_or_reply(
+            message,
+            f"**ERROR:** `{str(err)}`",
+            parse_mode=enums.ParseMode.MARKDOWN,
+        )
+        return
     await edit_or_reply(
         message,
         f"**Diterjemahkan ke:** `{target}`\n```{tekstr.text}```\n\n**Bahasa yang Terdeteksi:** `{(await trl.detect(text))}`",

@@ -23,12 +23,11 @@ def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
         return None
-    if " " in text_to_return:
-        try:
-            return message.text.split(None, 1)[1]
-        except IndexError:
-            return None
-    else:
+    if " " not in text_to_return:
+        return None
+    try:
+        return message.text.split(None, 1)[1]
+    except IndexError:
         return None
 
 
@@ -36,9 +35,7 @@ def get_arg(message: Message):
     msg = message.text
     msg = msg.replace(" ", "", 1) if msg[1] == " " else msg
     split = msg[1:].replace("\n", " \n").split(" ")
-    if " ".join(split[1:]).strip() == "":
-        return ""
-    return " ".join(split[1:])
+    return "" if not " ".join(split[1:]).strip() else " ".join(split[1:])
 
 
 def get_args(message: Message):
@@ -117,7 +114,6 @@ async def convert_to_image(message, client) -> [None, str]:
 
 def resize_image(image):
     im = Image.open(image)
-    maxsize = (512, 512)
     if (im.width and im.height) < 512:
         size1 = im.width
         size2 = im.height
@@ -134,6 +130,7 @@ def resize_image(image):
         sizenew = (size1new, size2new)
         im = im.resize(sizenew)
     else:
+        maxsize = (512, 512)
         im.thumbnail(maxsize)
     file_name = "Sticker.png"
     im.save(file_name, "PNG")
@@ -143,10 +140,10 @@ def resize_image(image):
 
 
 class Media_Info:
-    def data(media: str) -> dict:
+    def data(self) -> dict:
         "Get downloaded media's information"
         found = False
-        media_info = MediaInfo.parse(media)
+        media_info = MediaInfo.parse(self)
         for track in media_info.tracks:
             if track.track_type == "Video":
                 found = True
@@ -178,7 +175,7 @@ class Media_Info:
                     else None
                 )
 
-        dict_ = (
+        return (
             {
                 "media_type": type_,
                 "format": format_,
@@ -195,7 +192,6 @@ class Media_Info:
             if found
             else None
         )
-        return dict_
 
 
 async def resize_media(media: str, video: bool, fast_forward: bool) -> str:
@@ -214,14 +210,11 @@ async def resize_media(media: str, video: bool, fast_forward: bool) -> str:
             height, width = -1, 512
 
         resized_video = f"{media}.webm"
-        if fast_forward:
-            if s > 3:
-                fract_ = 3 / s
-                ff_f = round(fract_, 2)
-                set_pts_ = ff_f - 0.01 if ff_f > fract_ else ff_f
-                cmd_f = f"-filter:v 'setpts={set_pts_}*PTS',scale={width}:{height}"
-            else:
-                cmd_f = f"-filter:v scale={width}:{height}"
+        if fast_forward and s > 3:
+            fract_ = 3 / s
+            ff_f = round(fract_, 2)
+            set_pts_ = ff_f - 0.01 if ff_f > fract_ else ff_f
+            cmd_f = f"-filter:v 'setpts={set_pts_}*PTS',scale={width}:{height}"
         else:
             cmd_f = f"-filter:v scale={width}:{height}"
         fps_ = float(info_["frame_rate"])
